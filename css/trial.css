@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Coiny", cursive;
+  background: white;
+}
+.container {
+  width: 400px;
+  padding: 20px;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background: white;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 0 50px 50px;
+}
+.container h1 {
+  padding-top: 10px;
+  color: black;
+  font-weight: 500;
+}
+.container input[type="date"],
+.container input[type="text"],
+.container input[type="number"],
+.container input[type="password"],
+.container input[type="file"],
+.container select {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: black;
+  font-size: 16px;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.container input[type="date"]:focus,
+.container input[type="text"]:focus,
+.container input[type="password"]:focus,
+.container input[type="number"]:focus,
+.container input[type="file"]:focus,
+.container select:focus {
+  width: 280px;
+  border-color: #2ecc71;
+}
+.container input[type="submit"],
+.container input[type="button"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 25px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 17px;
+  font-family: "Libre Baskerville", serif;
+}
+.container input[type="submit"]:hover,
+.container input[type="button"]:hover,
+.container input[type="password"]:hover,
+.container input[type="number"]:hover,
+.container input[type="file"]:hover {
+  background: #2ecc71;
+}
