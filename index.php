@@ -1,278 +1,255 @@
 <?php
-include('includes/config.php');
-if(isset($_POST['submit']))
-{
+session_start();
+	?>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-// $file = $_FILES['image']['name'];
-// $file_loc = $_FILES['image']['tmp_name'];
-// $folder="images/"; 
-// $new_file_name = strtolower($file);
-// $final_file=str_replace(' ','-',$new_file_name);
-
-$name=$_POST['name'];
-$email=$_POST['email'];
-$branch=$_POST['branch'];
-$batch=$_POST['batch'];
-$mobileno=$_POST['mobileno'];
-$prefa=$_POST['pref1'];
-$prefb=$_POST['pref2'];
-$prefc=$_POST['pref3'];
-$prefd=$_POST['pref4'];
-$why=$_POST['why'];
-$text=$_POST['text'];
-
-
-
-// echo("$name,$email,$branch,$batch,$mobileno,$prefa,$prefb,$prefc,$prefd,$why,$text");
-
-// if(move_uploaded_file($file_loc,$folder.$final_file))
-// 	{
-// 		$image=$final_file;
-//     }
-// $notitype='Create Account';
-// // $reciver='Admin';
-//  $sender=$email;
-
-    
-$sql ="INSERT INTO `users`(`name`, `email`, `branch`, `batch`, `mobile`, `prefa`, `prefb`, `prefc`, `prefd`, `why`, `text`, `status`) VALUES (:name, :email, :branch, :batch, :mobileno, :prefa, :prefb, :prefc, :prefd, :why, :text, 0)";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':name', $name, PDO::PARAM_STR);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
-$query-> bindParam(':branch', $branch, PDO::PARAM_STR);
-$query-> bindParam(':batch', $batch, PDO::PARAM_STR);
-$query-> bindParam(':mobileno', $mobileno, PDO::PARAM_STR);
-$query-> bindParam(':prefa', $prefa, PDO::PARAM_STR);
-$query-> bindParam(':prefb', $prefb, PDO::PARAM_STR);
-$query-> bindParam(':prefc', $prefc, PDO::PARAM_STR);
-$query-> bindParam(':prefd', $prefd, PDO::PARAM_STR);
-$query-> bindParam(':why', $why, PDO::PARAM_STR);
-$query-> bindParam(':text', $text, PDO::PARAM_STR);
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-echo "<script type='text/javascript'>alert('Registration Sucessfull!');</script>";
-echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
-}
-else 
-{
-$error="Something went wrong. Please try again";
-}
-
-}
-?>
-
-<!doctype html>
-<html lang="en" class="no-js">
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-    <link rel="stylesheet" href="css/trial.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-social.css">
-	<link rel="stylesheet" href="css/bootstrap-select.css">
-	<link rel="stylesheet" href="css/fileinput.min.css">
-	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+    <link rel="stylesheet" href="css/trial.css" />
 	<link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript">
+	<link rel="stylesheet" href="css/fileinput.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-social.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.css" />
+    <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css" />
+    <title>home</title>
+  </head>
+  <body>
+  <?php include('includes/header.php');?>
+    <div id="cards_landscape_wrap-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-// 	function validate()
-//         {
-//             var extensions = new Array("jpg","jpeg");
-//             var image_file = document.regform.image.value;
-//             var image_length = document.regform.image.value.length;
-//             var pos = image_file.lastIndexOf('.') + 1;
-//             var ext = image_file.substring(pos, image_length);
-//             var final_ext = ext.toLowerCase();
-//             for (i = 0; i < extensions.length; i++)
-//             {
-//                 if(extensions[i] == final_ext)
-//                 {
-//                 return true;
-                
-//                 }
-//             }
-//             alert("Image Extension Not Valid (Use Jpg,jpeg)");
-//             return false;
-//         }
-        
-// </script>
-</head>
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                    <h6>Documentation</h6>
+                    <div class="text">
+                    <p class="">
+                      You shall be responsible for making write-ups and putting
+                      together reports of all the important events conducted,
+                      meetings held and so on. You will also be in charge of
+                      writing letters requesting permission to access perhaps
+                      certain facilities of the college or to pick a day of
+                      least resistance to present an event. You will handle all
+                      personalized reports of club activities and shall assist
+                      the documentation head. If you consider your pen your
+                      strongest weapon, apply for this post!
+                    </p>
+</div>
+                  </div>
+                </div>
+              </div>
 
-<body>
-	<div class="login-page bk-img">
-		<div class="form-content">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 class="text-center text-bold mt-2x">Register</h1>
-                        <div class="hr-dashed"></div>
-						<div class="well row pt-2x pb-3x bk-light text-center">
-                         <form method="post" class="form-horizontal" enctype="multipart/form-data" name="regform" onSubmit="return validate();">
-                            <div class="form-group">
-                            <label class="col-sm-1 control-label">Name<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="text" name="name" class="form-control input" required>
-                            </div>
-                            <label class="col-sm-1 control-label">Email<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="text" name="email" class="form-control" required>
-                            </div>
-                            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-                            <div class="form-group">
-                            <label class="col-sm-1 control-label">Branch<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="text" name="branch" class="form-control input" required>
-                            </div>
-                            <label class="col-sm-1 control-label">Batch<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="text" name="batch" class="form-control" required>
-                            </div>
-                            </div>
-                            
-                            <div class="form-group">
-                            <label class="col-sm-1 control-label">Phone<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="number" name="mobileno" class="form-control" required>
-                            </div>
-                            </div>
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                    <h6>Student Representative</h6>
+                    <div class="text">
+                    <p class="">
+                      You are going to be one of the faces of ISTE. You will be
+                      coordinating all members from each year and will be the
+                      mutual link between the excom and the members. Collecting
+                      opinions issues and criticisms of the members and
+                      communicating with them accordingly will be your part of
+                      the package. You will lead the ISTE class reps and will be
+                      assisting the senior rep head. If you think you got the
+                      leadership skills to take up this post, what are you
+                      waiting for?!
+                    </p>
+</div>
+                  </div>
+                </div>
+              </div>
 
-                            <h1 class="text-center text-bold mt-2x">ISTE</h1>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-                            <div class="form-group">
-                            <label class="col-sm-1 control-label">&nbsp;1<sup>st</sup> Pref<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <select name="pref1" class="form-control" required>
-                            <option value="">Select</option>
-                            <option value="Documentation">Documentation</option>
-                            <option value="Co Designer">Co Designer</option>
-                            <option value="Public">Public Relations</option>
-                            <option value="Student">Student Rep</option>
-                            <option value="Programme Coordinator">Programme Coordinator</option>
-                            <option value="Registration">Registration</option>
-                            <option value="Credit Manager">Credit Manager</option>
-                            <option value="Technical">Technical Support</option>
-                            </select>
-                            </div>
-                            <label class="col-sm-1 control-label">&nbsp;2<sup>nd</sup> Pref<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <select name="pref2" class="form-control" required>
-                            <option value="">Select</option>
-                            <option value="Documentation">Documentation</option>
-                            <option value="Co Designer">Co Designer</option>
-                            <option value="Public">Public Relations</option>
-                            <option value="Student">Student Rep</option>
-                            <option value="Programme Coordinator">Programme Coordinator</option>
-                            <option value="Registration">Registration</option>
-                            <option value="Credit Manager">Credit Manager</option>
-                            <option value="Technical">Technical Support</option>
-                            </select>
-                            </div>
-                            </div>
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                    <h6>Public Relations</h6>
+                    <div class="text">
+                    <p class="">
+                      You are the captain of communications. It will be your job
+                      to steer and maintain all of ISTE's social media
+                      communications. You shall be the brains behind the
+                      marketing strategies for events and will be responsible
+                      for website contact forms. All plans for promoting our
+                      programs including checking the status of the requested
+                      permission for conducting the program will be looked on by
+                      you. You will assist the Public Relations Head as well.
+                      The power to expand our reach is merely within your
+                      fingertips. If you think you are social media influencer
+                      enough, apply for this position now!
+                    </p>
+</div>
+                  </div>
+                </div>
+              </div>
 
-                            <div class="form-group">
-                            <label class="col-sm-1 control-label">&nbsp;3<sup>rd</sup> Pref<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <select name="pref3" class="form-control" required>
-                            <option value="">Select</option>
-                            <option value="Documentation">Documentation</option>
-                            <option value="Co Designer">Co Designer</option>
-                            <option value="Public">Public Relations</option>
-                            <option value="Student">Student Rep</option>
-                            <option value="Programme Coordinator">Programme Coordinator</option>
-                            <option value="Registration">Registration</option>
-                            <option value="Credit Manager">Credit Manager</option>
-                            <option value="Technical">Technical Support</option>
-                            </select>
-                            </div>
-                            <label class="col-sm-1 control-label">&nbsp;4<sup>th</sup> Pref<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <select name="pref4" class="form-control" required>
-                            <option value="">Select</option>
-                            <option value="Documentation">Documentation</option>
-                            <option value="Co Designer">Co Designer</option>
-                            <option value="Public">Public Relations</option>
-                            <option value="Student">Student Rep</option>
-                            <option value="Programme Coordinator">Programme Coordinator</option>
-                            <option value="Registration">Registration</option>
-                            <option value="Credit Manager">Credit Manager</option>
-                            <option value="Technical">Technical Support</option>
-                            </select>
-                            </div>
-                            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-                            <div class="form-group">
-                            <label class="col-sm-1 control-label">Why ISTE<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="text" name="why" class="form-control input" required>
-                            </div>
-                            <label class="col-sm-1 control-label">Text<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="text" name="text" class="form-control" required>
-                            </div>
-                            </div>
-                            
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                    <h6>Co-designer</h6>
+                    <div class="text">
+                    <p class="">
+                      You are to be the paint to a painting. It is your duty to
+                      create effective posters and attractive promo videos and
+                      arrange the tidbits of the message to be conveyed in the
+                      most constructive way. You will be the head of the ISTE
+                      design team and will guide your team with a dash of
+                      resilience and a pinch of imagination. If you can think
+                      outside the box to impress the audience, sign right up!
+                    </p>
+</div>
+                  </div>
+                </div>
+              </div>
 
-                            <!-- <div class="form-group">
-                            <label class="col-sm-1 control-label">Password<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="password" name="password" class="form-control" id="password" required >
-                            </div>
+          </div>
 
-                            <label class="col-sm-1 control-label">Designation<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <input type="text" name="designation" class="form-control" required>
-                            </div>
-                            </div>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-                             <div class="form-group">
-                            <label class="col-sm-1 control-label">&nbsp;Gender<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <select name="gender" class="form-control" required>
-                            <option value="">Select</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            </select>
-                            </div>
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                    <h6>Program Coordinator</h6>
+                    <div class="text">
+                    <p class="">
+                      You are that 'green room guy'. Although you wouldn't be
+                      having a headset to give your orders through, you will
+                      help in the conduction and organization of events. You may
+                      pitch in innovative ideas for events and obtain
+                      permissions for these events to be conducted. You will
+                      also be assisting the event coordinators. If you are that
+                      guy who can handle and manage any situation, come right
+                      through!
+                    </p>
+</div>
+                  </div>
+                </div>
+              </div>
 
-                             <div class="form-group">
-                            <label class="col-sm-1 control-label">Avtar<span style="color:red">*</span><br></label>
-                            <div class="col-sm-5">
-                            <div><input type="file" name="image" class="form-control"></div>
-                            </div>
-                            </div>-->
+          </div>
 
-								<br>
-                                <button class="btn btn-primary" name="submit" type="submit">Register</button>
-                                </form>
-                                <br>
-                                <br>
-								<p>Login as a Admin <a href="admin/index.php" >Admin</a></p>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Loading Scripts -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-	<script src="js/Chart.min.js"></script>
-	<script src="js/fileinput.js"></script>
-	<script src="js/chartData.js"></script>
-	<script src="js/main.js"></script>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-</body>
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                    <h6>Credit Manager</h6>
+                    <div class="text">
+                    <p class="">
+                      You will be dealing with the financial faction of ISTE and
+                      shall handle our budget feasibly and responsibly.You are
+                      in charge of collecting and approving new registrations.
+                      The collection of registration fees will also be under
+                      your jurisdiction. You will be assisting the financial
+                      head. If your calculations never falter, this is the post
+                      for you!
+                    </p>
+</div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                  <h6>Registration</h6>
+                  <div class="text">
+                    <p class="">
+                      You are the beginning to a successful program. It will be
+                      your duty to handle the registration process of all
+                      programs. You will be assigned to the technical side of
+                      the registration process and will analyse and correct the
+                      faults in the process. You will also help the registration
+                      head.
+                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="text-container">
+                    <h6 class="h6">Technical support</h6>
+                    <div class="text">
+                    <p class="">
+                      Your power leans to the technical aspects of ISTE. You
+                      will have over all control over the 404 ISTE webpage. You
+                      will handle the technical side of any event and give
+                      technical assistance to the registration committee when
+                      required. You must assist the technical team head as well.
+                      If you are tech savvy enough, quick board this train!
+                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+        <br /><br />
+        <a href="home.php">
+          <button type="button" class="btn btn-primary btn-lg btn-block">
+            REGISTER NOW
+          </button>
+        </a>
+      </div>
+      <br />
+    </div>
+    <footer>
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <br><br><br>
+                    <img src="./images/logo1.jpg">
+                </div>
+                <div class="col-lg-3 col-sm-2 col-xs-3">
+                    <h3> Contact </h3>
+                    <ul>
+                        <li><a class="email"href=""> www.istetkmce.in </a></li>
+                        <br/>
+                        <li> <p> Vishnu 6282520388 </p> </li>
+                        <li> <p> Bhagyasree 9495687277</p> </li>
+                    </ul>
+                </div>
+               
+               
+            <!--/.row--> 
+        </div>
+        <!--/.container--> 
+    </div>
+    <!--/.footer-->
+                          
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="pull-left copyright"> Copyright © ISTE. All right reserved. </p>
+       
+        </div>
+    </div>
+    <!--/.footer-bottom--> 
+
+</footer>
+  </body>
 </html>
